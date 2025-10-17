@@ -1,12 +1,14 @@
-public  class Proprietario {
+#nullable disable
+public class Proprietario
+{
 
     //atributos com getters e setters 
-    public string Nome {get; set; };
-    public string CPF {get; set; };
-    public string Telefone{get; set; };
+    public string Nome { get; set; }
+    public string CPF { get; set; }
+    public string Telefone { get; set; }
 
     //montando o construtor
-    public Proprietario(string nome, string cpf, string telefone) 
+    public Proprietario(string nome, string cpf, string telefone)
     {
         this.Nome = nome;
         this.CPF = cpf;

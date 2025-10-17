@@ -1,25 +1,28 @@
+#nullable disable
 //SUBCLASSE CASA
 public class Casa : Imovel
 {
-    private double _valorDiaria = 650,00;
+    private double _valorDiaria = 650;
 
-    public Casa(int id, string endereco, int numero, Proprietario proprietario)
-        : base(id, endereco, numero, proprietario) { }
+    public Casa(int id, string endereco, int numero, Proprietario proprietario) :
+    base(id, endereco, numero, proprietario)
+    { }
 
-    public override double CalcularAluguel(int dias)  
+
+    public override double CalcularAluguel(int dias)
     {
         return dias * _valorDiaria;
-    } 
+    }
 
     public override string ObterStatusAluguel()
     {
         if (_alugado)
         {
-            return "A casa está alugada."; 
+            return "A casa está alugada.";
         }
         else
         {
-            return "A casa está disponível."; 
+            return "A casa está disponível.";
         }
     }
 }
@@ -28,7 +31,7 @@ public class Casa : Imovel
 
 public class Apartamento : Imovel
 {
-    private double _valorDiaria = 1250,00; 
+    private double _valorDiaria = 1250;
     private double TaxaCondominioCalculada 
     {
         get {return _valorDiaria * 0.25;}
@@ -45,7 +48,7 @@ public class Apartamento : Imovel
 
     public override string ObterStatusAluguel()
     {
-
+        string status;
         if (_alugado)
         {
             status = "alugado"; 

@@ -1,8 +1,9 @@
+﻿#nullable disable
 using System;
 
-class Program
+public class Program
 {
-    public static void Main(strings[] args)
+    public static void Main(string[] args)
     {
         Imobiliaria imobiliaria = new Imobiliaria();
         bool executando = true;
@@ -18,11 +19,10 @@ class Program
             Console.WriteLine("5. Calcular valor do aluguel");
             Console.WriteLine("6. Excluir Imóvel");
             Console.WriteLine("7. Sair");
-            Console.Write("Escolha uma opção: ")
+            Console.Write("Escolha uma opção: ");
 
             string opcao = Console.ReadLine();
             Console.Clear();
-
             try
             {
                 switch (opcao)
@@ -45,25 +45,24 @@ class Program
                     case "6":
                         imobiliaria.ExcluirImovel();
                         break;
-
-                    case "7": 
+                    case "7":
                         executando = false;
-                        Console.WriteLine("Saindo do sistema...")    
+                        Console.WriteLine("Saindo do sistema...");
+                        break;
                     default:
-                        Console.WriteLine("Opção inválida. Tente novamente.");  
-                        break;  
+                        Console.WriteLine("Opção inválida. Tente novamente.");
+                        break;
 
                 }
             }
-            catch (Format.Exception)
+            catch (FormatException)
             {
-                Console.WriteLine("Erro: Entrada inválida. Por favor, digite um número quando solicitado.");   
-                
+                Console.WriteLine("Erro: Entrada inválida. Por favor, digite um número quando solicitado.");
+
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Ocorreu um erro inesperado: {ex.Message}");   
-                
+                Console.WriteLine($"Ocorreu um erro inesperado: {ex.Message}");
             }
 
             if (executando)
@@ -72,6 +71,6 @@ class Program
                 Console.ReadKey();
                 Console.Clear();
             }
-        }    
+        }
     }
 }

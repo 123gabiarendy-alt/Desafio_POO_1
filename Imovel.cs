@@ -1,3 +1,4 @@
+#nullable disable
 using System;
 
 public abstract class Imovel {
@@ -5,7 +6,7 @@ public abstract class Imovel {
     //atributos
     protected int _id;
     protected string _endereco;
-    protected int _numero
+    protected int _numero;
     protected bool _alugado;
     protected Proprietario _proprietario;
     
@@ -15,18 +16,20 @@ public abstract class Imovel {
     public int Numero { get => _numero; set => _numero = value; }
     public Proprietario Proprietario { get => _proprietario; set => _proprietario = value; }
     public bool Alugado { get => _alugado; }
-    
+
     //montando o construtor
-    public Imovel(int Id, string Endereco, int Numero, Proprietario Proprietario)
+    public Imovel(int Id, string Endereco, int Numero, Proprietario proprietario)
     {
-        this.-id = id;
-        this._endereco = endereco;
-        this._numero = numero;
-        this._alugado = false; 
+        this._id = Id;
+        this._endereco = Endereco;
+        this._numero = Numero;
+        this._alugado = false;
         this._proprietario = proprietario;
     }
 
     //métodos
+
+    public abstract double CalcularAluguel(int dias);
     public virtual string ObterStatusAluguel()
     {
         if(_alugado)
@@ -43,23 +46,23 @@ public abstract class Imovel {
     {
         if (_alugado)
         {
-            Console.WriteLine("Esse imóvel está alugado! Verifique outro com a imobiliária.")
+            Console.WriteLine("Esse imóvel está alugado! Verifique outro com a imobiliária.");
         }
         else 
         {
-            _alugado = true
-            Console.WriteLine("Imóvel alugado com sucesso")
+            _alugado = true;
+            Console.WriteLine("Imóvel alugado com sucesso");
         }
     }
     public void Disponibilizar()
     {
         if(!_alugado){
-            Console.WriteLine("Este imóvel já está disponível.")
+            Console.WriteLine("Este imóvel já está disponível.");
         }
         else
         {
             _alugado = false;
-            Console.WriteLine("Imóvel disponível para alugar!")
+            Console.WriteLine("Imóvel disponível para alugar!");
         }
     }
     

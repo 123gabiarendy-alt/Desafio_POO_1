@@ -1,16 +1,17 @@
+#nullable disable
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 public class Imobiliaria 
 {
-    private List<Imovel> imoveis = new List<Imovel>();
+    private readonly List<Imovel> imoveis = [];
     private int proximoId = 1;
 
     //metodos 
     // 1 Cadastrar Imóvel
 
-    public void CadastarImovel() 
+    public void CadastrarImovel() 
     {
         Console.WriteLine("Cadastro de imóvel");
         Console.Write("Tipo (1- Casa, 2- Apartamento): ");
@@ -63,11 +64,11 @@ public class Imobiliaria
             string tipo;
             if(imovel is Casa)
             {
-                tipo = "Casa"
+                tipo = "Casa";
             }
             else
             {
-                tipo = "Apartamento"
+                tipo = "Apartamento";
             }
 
             Console.WriteLine($"\nID: {imovel.Id} | Tipo: {tipo}");
@@ -99,7 +100,7 @@ public class Imobiliaria
     // 4- Disponibilizar Imóvel
     public void  DisponibilizarImovel()
     {
-        Console.Write("Digite o ID do imóvel para disponibilizá-lo: ")
+        Console.Write("Digite o ID do imóvel para disponibilizá-lo: ");
         int id = int.Parse(Console.ReadLine());
         var imovel = imoveis.FirstOrDefault(i => i.Id == id);
         if (imovel != null)
@@ -114,12 +115,12 @@ public class Imobiliaria
     //5. Calcular o valor do aluguel por período
     public void CalcularValorAluguel()
     {
-        Console.Write("Digite o ID do imóvel: ")
+        Console.Write("Digite o ID do imóvel: ");
         int id = int.Parse(Console.ReadLine());
         var imovel = imoveis.FirstOrDefault(i => i.Id == id);
         if (imovel != null)
         {
-            Console.Write("Digite a quantidade de dias: ")
+            Console.Write("Digite a quantidade de dias: ");
             int dias = int.Parse(Console.ReadLine());
             double valor = imovel.CalcularAluguel(dias);
             Console.WriteLine($"O valor do aluguel por {dias} dias é: R$ {valor:F2}");
@@ -132,13 +133,13 @@ public class Imobiliaria
     //Excluir imóvel 
     public void ExcluirImovel()
     {
-        Console.Write("Digite o ID do imóvel para excluir: ")
+        Console.Write("Digite o ID do imóvel para excluir: ");
         int id = int.Parse(Console.ReadLine());
         var imovel = imoveis.FirstOrDefault(i => i.Id == id);
         if (imovel != null)
         {
             imoveis.Remove(imovel);
-            Console.WriteLine("Imóvel excluído com sucesso!")
+            Console.WriteLine("Imóvel excluído com sucesso!");
             int dias = int.Parse(Console.ReadLine());
             double valor = imovel.CalcularAluguel(dias);
             Console.WriteLine($"O valor do aluguel por {dias} dias é: R$ {valor:F2}");
